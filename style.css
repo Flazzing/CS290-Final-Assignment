@@ -112,7 +112,7 @@ a {
 }
 
 .twit-container {
-  margin: 50px 10%;
+  margin: 10px 10%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -144,4 +144,10 @@ a {
   margin-top: 8px;
   text-align: right;
   font-weight: bold;
+}
+
+.creator-title{
+    margin-left: 200px;
+    margin-top: 100px;
+    margin-bottom: 5px;
 }
