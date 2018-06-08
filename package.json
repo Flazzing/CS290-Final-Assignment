@@ -1,0 +1,17 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "EchoFly assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Lim",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.0.11",
+    "mongo": "^0.1.0",
+    "mongodb": "^3.0.10"
+  }
+}
