@@ -7,9 +7,8 @@ Links: 1)https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_
 	
 	Interface References: https://clyp.it/
 
-Library 
-	mongodb
-	handlebars
+Library: 1) mongodb
+	 2) handlebars
 
 Site will be able to record audio from user's mic input to store onto a database to be re-accessed later.  
 
