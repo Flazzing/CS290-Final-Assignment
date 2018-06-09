@@ -1,4 +1,4 @@
-CS 290 Final Project
+#CS 290 Final Project
 
 Links: 1)https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
 	2) https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API
