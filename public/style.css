@@ -111,72 +111,87 @@ a {
   outline: none;
 }
 
-.twit-container {
-  margin: 10px 10%;
+
+.creator-full-container{
+    margin: auto;
+}
+
+
+.creator-container {
+  margin: 10px 30%;
   display: flex;
   flex-wrap: wrap;
 }
 
-.twit {
-  flex: 0 1 28%;
+.creator {
+  flex: 0 1 38%;
   display: flex;
-  margin: 2px;
+  margin: 0px;
   padding: 20px;
   border: 1px solid #dadada;
   border-radius: 2px;
   background-color: #fff;
 }
 
-.twit-icon {
+.creator-icon {
   font-size: 24px;
 }
 
-.twit-content {
+.creator-content {
   flex: 1 1 80%;
   margin-left: 10px;
 }
 
-.twit-content p {
+.creator-content p {
   margin: 0;
 }
 
-.twit-content .twit-attribution {
+.creator-content .creator-attribution {
   margin-top: 8px;
-  text-align: right;
+  text-align: left;
   font-weight: bold;
 }
 
 .creator-title{
-    margin-left: 200px;
+    margin-left: 30%;
     margin-top: 100px;
     margin-bottom: 5px;
 }
 
-
-
-
+.clips-full-container{
+    margin: auto;
+    padding-bottom: 10%;
+}
 
 
 .clips-container {
-    margin: 10px 10%;
-    display: flex;
+    margin: 10px 30%;
+    margin-bottom: 30px;
+    display: inherit;
     width: 1000px;
-    height: 200px;
+    height: autox;
     flex-wrap: wrap;
+    border: 1px solid #dadada;
+    background-color: #fff;
+}
+
+.clips-icon {
+    font-size: 24px;
+    border: 1px solid #dadada;
+    padding: 0;
+    margin: 0px;
+}
+
+.clips-icon i{
+    margin: 10px;
 }
 
 .clips {
   flex: 0 1 28%;
-  display: flex;
-  margin: 2px;
+  display: flex;   
+  margin: 0px;
   padding: 20px;
-  border: 1px solid #dadada;
   border-radius: 2px;
-  background-color: #fff;
-}
-
-.clips-icon {
-  font-size: 24px;
 }
 
 .clips-content {
@@ -195,9 +210,40 @@ a {
 }
 
 .clips-title{
-    margin-left: 200px;
-    margin-top: 100px;
-    margin-bottom: 5px;
+    margin: 10px 30%;
+    margin-top: 60px;
+}
+
+
+
+.author-comments{
+    margin: 0;
+    padding: 20px;
+    border: 1px solid green;
+    border-radius: 2px;
+    background-color: #fff;
+
+}
+
+
+
+
+
+.error-container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.error-container h2 {
+  margin: 10px 0;
+  font-size: 96px;
+  font-weight: 100;
+}
+
+.error-container h3 {
+  margin: 10px 0;
+  font-size: 36px;
+  font-weight: 400;
 }
 
 
@@ -211,16 +257,13 @@ a {
 
 
 
-
-
-
-
 .footer-table{
- overflow: hidden;
-  background-color: #FDFFFC;
-  position: fixed;
-  bottom: 0;
-  width: 130%;
+    overflow: hidden;
+    background-color: #FDFFFC;
+    position: fixed;
+    bottom: 0;
+    width: 130%;
+    position: fixed;
 }
 
 footer{
