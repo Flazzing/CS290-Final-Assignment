@@ -114,20 +114,23 @@ a {
 
 .creator-full-container{
     margin: auto;
+    
 }
 
 
 .creator-container {
-  margin: 10px 30%;
+    margin-left: 30%;
+    margin-right: 23%;
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .creator {
-  flex: 0 1 38%;
+  flex: 0 1 25%;
   display: flex;
   margin: 0px;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #dadada;
   border-radius: 2px;
   background-color: #fff;
