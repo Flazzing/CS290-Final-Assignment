@@ -32,10 +32,7 @@ a {
     background-color: #FFBB03;
     color: white;
     border: none;
-    padding-top: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 10px;
+    padding: 10px 20px 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -111,25 +108,31 @@ a {
   outline: none;
 }
 
+///////////////
+//  Creator  //
+///////////////
 
-.creator-full-container{
-    margin: auto;
-    
+.creator-title{
+  width: auto;
+  margin-top: 60px;
 }
 
+.creator-full-container{
+  margin-left: 10%;
+  width: 80%;
+}
 
 .creator-container {
-    margin-left: 30%;
-    margin-right: 23%;
-  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .creator {
-  flex: 0 1 25%;
+  margin: 0;
+  width: 31%;
   display: flex;
-  margin: 0px;
+  float: left;
   padding: 10px;
   border: 1px solid #dadada;
   border-radius: 2px;
@@ -155,24 +158,44 @@ a {
   font-weight: bold;
 }
 
-.creator-title{
-    margin-left: 30%;
-    margin-top: 100px;
-    margin-bottom: 5px;
+@media screen and (max-width: 1200px) {
+  .creator {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .creator-full-container{
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .creator {
+    width: 100%;
+  }
+}
+
+////////////
+//  Clips //
+////////////
+
+.clips-title{
+    width: auto;
+    margin-top: 60px;
 }
 
 .clips-full-container{
-    margin: auto;
-    padding-bottom: 10%;
+    margin-left: 10%;
+    width: 80%;
+    padding-bottom: 10px;
 }
 
 
 .clips-container {
-    margin: 10px 30%;
     margin-bottom: 30px;
     display: inherit;
-    width: 1000px;
-    height: autox;
+    width: 100%;
+    height: auto;
     flex-wrap: wrap;
     border: 1px solid #dadada;
     background-color: #fff;
@@ -212,25 +235,28 @@ a {
   font-weight: bold;
 }
 
-.clips-title{
-    margin: 10px 30%;
-    margin-top: 60px;
-}
-
-
-
 .author-comments{
     margin: 0;
     padding: 20px;
     border: 1px solid green;
     border-radius: 2px;
     background-color: #fff;
+}
+
+@media screen and (max-width: 1200px) {
 
 }
 
+@media screen and (max-width: 768px) {
+  .clips-full-container {
+    margin-left: 0;
+    width: 100%;
+  }
+}
 
-
-
+////////////////
+//  404 Page  //
+////////////////
 
 .error-container {
   margin-top: 50px;
@@ -248,17 +274,6 @@ a {
   font-size: 36px;
   font-weight: 400;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .footer-table{
     overflow: hidden;
