@@ -12,5 +12,12 @@ Library:
 *  `mongodb`
 * `handlebars`
 
-Site will be able to record audio from user's mic input to store onto a database to be re-accessed later.  
+Site will be able to record audio from user's mic input to store onto a database to be re-accessed later.
+
+
+HTML lacking:
+
+*  `Popup page for signup button`
+*  `Popupp page for upload button`
+*  `Popupp page for signin button`
 
