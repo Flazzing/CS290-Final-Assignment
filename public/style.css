@@ -329,10 +329,6 @@ flex-basis: 33.33%;
 //////////////
 //  Modal  //
 /////////////
-.hide_modal {
-  display: none;
-}
-
 #modal_backdrop {
   position: fixed;
   top: 0;
@@ -352,6 +348,10 @@ flex-basis: 33.33%;
   right: 0;
   z-index: 850;
   overflow: scroll;
+}
+
+.hide_modal{
+	display: none;
 }
 
 .record{
