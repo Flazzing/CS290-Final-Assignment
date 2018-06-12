@@ -29,3 +29,18 @@ Filled in some js using project 5 functions.  Need modals to finish.
 
 index.html:
 Changed some html titles.  We may need to give separate class name to the usernames in the clips container because if the modal searches text values, the images' html may be picked up by it.  
+
+
+modal work:
+I created a basic modal layout with a player that will be used to load the most currently recorded clip. I've sourced that player from jplayer.org
+
+Files from jplayer.org that can be moved to their own folder within public:
+*  `jquery.jplayer.min.js`
+*  `jquery.min.js`
+*  `All other side files labeled with jplayer`
+
+Modal lacking:
+
+*  `javascript for adding clips that that player and website`
+*  `clearing of information when closed`
+*  `adding charachter limit to title and author entires`
