@@ -16,18 +16,39 @@ function handleModalUploadClick() {
   }
 }
 
-//finish once modals are uploaded
-function showUploadClipModal(){
+/* Display modal when Upload clicked */
+var upload = document.getElementById('upload-button');
+upload.addEventListener('click', function() {
+	display_modal();
+});
 
-  var modalBackdrop = document.getElementById('modal-backdrop');
-  var createClipModal = document.getElementById('create-clip-modal');
 
-  modalBackdrop.classList.remove('hidden');
-  createTwitModal.classList.remove('hidden');
+
+var x_button = document.getElementsByClassName('modal_close')[0];
+x_button.addEventListener('click', function() {
+	hide_modal();
+});
+
+var cancel_button = document.getElementsByClassName('modal_cancel')[0];
+cancel_button.addEventListener('click', function() {
+	hide_modal();
+});
+
+var submit_button = document.getElementsByClassName('modal_submit')[0];
+
+
+function display_modal(){
+	var modal = document.getElementById('modal_container');
+	var modal_backdrop = document.getElementById('modal_backdrop');
+	modal.classList.remove('hide_modal');
+	modal_backdrop.classList.remove('hide_modal');
+	
 }
 
-function clearClipInputValues(){
+function hide_modal(){
+	var modal = document.getElementById('modal_container');
+	var modal_backdrop = document.getElementById('modal_backdrop');
+	modal.classList.add('hide_modal');
+	modal_backdrop.classList.add('hide_modal');
 }
 
-function hideCreateClipModal(){
-}
