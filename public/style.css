@@ -366,6 +366,10 @@ flex-basis: 33.33%;
 	background-color: #F4140D; 
 }
 
+.record:hover{
+	box-shadow: 10px 2px;
+}
+
 .stop{
 	border-radius: 30px;
 	min-width: 30px;
@@ -375,6 +379,10 @@ flex-basis: 33.33%;
 	font-size: 18px;
 	box-shadow: none; 
 	border: none;
+}
+
+.stop:hover{
+	box-shadow: 10px 2px;
 }
 
 .recorder_content{
