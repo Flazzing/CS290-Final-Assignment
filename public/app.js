@@ -12,6 +12,7 @@ if(navigator.getUserMedia){
 
   .then(function(stream){
     var mediaRecorder = new MediaRecorder(stream);
+
     record.onclick = function(){
       mediaRecorder.start();
       console.log(mediaRecorder.state);
@@ -35,9 +36,34 @@ if(navigator.getUserMedia){
     }
     mediaRecorder.onstop=function(e){ //On stop, recording should load into player
       console.log('recorder stopped');
+      var clipsFullContainer = document.querySelector('clips-content');
+      var clipName = document.querySelector('input_text');
+      var clipContainer = document.createElement('article');
+      var clipLabel = document.createElement('p');
+      var audio = document.createElement('audio');
+      var deleteButton = document.createElement('button');
+
+      clipContainer.classList.add('clip');
+      audio.setAttribute('controls', '');
+      deleteButton.innerHTML = "Delete";
+      clipLabel.innerHTML = clipName;
+
+      clipContainer.appendChild(audio);
+      clipContainer.appendChild(clipLabel);
+      clipContainer.appendChild(deleteButton);
+      clipsFullContainer.appendChild(clipContainer);
+
       var blob = new Blob(clipStream, {'type':'audio/ogg; codecs=opus'});
       clipStream= [];
-      //jquery_jplayer_1.jPlayer('load'):jQuery;  //Tryna load the blob into the player, but not sure how jquery works
+      var audioURL = window.URL.createObjectURL(blob);
+      audio.src = audioURL;
+
+      deleteButton.onclick = function(e) {
+        var eventTarget = e.target;
+        eventTarget.parentNode.parentNode.removeChild(eventTarget.parentNode);
+
+      }
+
     }
   })
 
