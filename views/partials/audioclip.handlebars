@@ -1,13 +1,26 @@
-<article class="twit">
-	<div class="twit-icon">
-		<i class="fa fa-bullhorn"></i>
-	</div>
-	<div class="twit-content">
-		<p class="twit-text">
-			{{text}}
-		</p>
-		<p class="twit-attribution">
-			<a href="#">{{author}}</a>
-		</p>
-	</div>
-</article>
+<main class="clips-container">
+    <div class="clips-icon">
+        <i class="profile">
+            <i><img src = "Logo.png" height="55" width="65"></i>
+            <i>
+              {{author}}
+            </i>
+        </i>
+    </div>
+    <article class="clips">
+        <button type="button" class = "play-button">
+            <img src= "playbutton.png" height="42" width="42">
+        </button>
+
+        <div class="clips-content">
+            <p class="clips-text">API SHOULD BE EXTEND FROM HERE
+                <p1 class="clips-time">3:58</p1>
+            </p>
+        </div>
+    </article>
+    <div class = "author-comments">
+
+      {{comments}}
+
+    </div>
+</main>

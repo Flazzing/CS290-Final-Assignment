@@ -1,6 +1,18 @@
 var allUsers = [];
 var allClips = [];
 
+function insertNewClip(clipAuthor, clipComments) {
+
+  var clipTemplate = Handlebars.templates.audioclip;
+  var clipHTML = clipTemplate({
+    author: clipAuthor,
+    comments: clipComments
+  });
+
+  var clipContainer = document.querySelector('.clips-full-container');
+  clipContainer.insertAdjacentHTML('beforeend', clipHTML);
+}
+
 function handleModalUploadClick() {
 
   var clipName = document.getElementById('name-input').value;  //element located in modal
@@ -22,8 +34,6 @@ upload.addEventListener('click', function() {
 	display_modal();
 });
 
-
-
 var x_button = document.getElementsByClassName('modal_close')[0];
 x_button.addEventListener('click', function() {
 	hide_modal();
@@ -35,6 +45,10 @@ cancel_button.addEventListener('click', function() {
 });
 
 var submit_button = document.getElementsByClassName('modal_submit')[0];
+submit_button.addEventListener('click', function() {
+	insertNewClip(document.getElementById('input_text').value, document.getElementById('contributor_text').value);
+	hide_modal();
+})
 
 
 function display_modal(){
