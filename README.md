@@ -42,5 +42,8 @@ Files from jplayer.org that can be moved to their own folder within public:
 Modal lacking:
 
 *  `javascript for adding clips that that player and website`
-*  `clearing of information when closed`
+*  `clearing of information when closed` (FIXED)
 *  `adding charachter limit to title and author entires`
+
+index.js:
+added getUserMedia() function and an event listener for recordClip(), but site doesn't ask for access to microphone for some reason and clicking record doesn't do anything.  I added clearing of text values when adding text in the modal.  Also, tried to fix modal background but not sure why it isn't being displayed.  It may have something to do with the ordering of the CSS because I vaguely remember Hess mentioning modal backdrop wouldn't work if it is ordered incorrectly.  
