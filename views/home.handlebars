@@ -78,72 +78,13 @@
 
 
   <main class = "clips-full-container">
-
   <div class = "clips-title"><p>FEATURED CLIPS</p></div>
-  <main class="clips-container">
-      <div class="clips-icon">
-          <i class="profile">
-               <i><img src = "Logo.png" height="55" width="65"></i>
-              <i>Username</i>
-          </i>
-      </div>
-      <article class="clips">
-          <button type="button" class = "play-button">
-              <img src= "playbutton.png" height="42" width="42">
-          </button>
 
-          <div class="clips-content">
-              <p class="clips-text">API SHOULD BE EXTEND FROM HERE
-                  <p1 class="clips-time">3:58</p1>
-              </p>
-          </div>
-      </article>
-      <div class = "author-comments">This is a song made by me.</div>
+    {{#each clip}}
+      {{> clip}}
+    {{/each}}
+
   </main>
-
-
-   <main class="clips-container">
-      <div class="clips-icon">
-          <i class="profile">
-               <i><img src = "Logo.png" height="42" width="42"></i>
-              <i>Username2</i>
-          </i>
-      </div>
-      <article class="clips">
-          <button type="button" class = "play-button">
-              <img src= "playbutton.png" height="42" width="42">
-          </button>
-
-          <div class="clips-content">
-              <p class="clips-text">API SHOULD BE EXTEND FROM HERE
-                  <p1 class="clips-time">3:58</p1>
-              </p>
-          </div>
-      </article>
-      <div class = "author-comments">This is a song made by me.</div>
-  </main>
-       <main class="clips-container">
-      <div class="clips-icon">
-          <i class="profile">
-               <i><img src = "Logo.png" height="42" width="42"></i>
-              <i>Username3</i>
-          </i>
-      </div>
-      <article class="clips">
-          <button type="button" class = "play-button">
-              <img src= "playbutton.png" height="42" width="42">
-          </button>
-
-          <div class="clips-content">
-              <p class="clips-text">API SHOULD BE EXTEND FROM HERE
-                  <p1 class="clips-time">3:58</p1>
-              </p>
-          </div>
-      </article>
-      <div class = "author-comments">This is a song made by me.</div>
-  </main>
-
-      </main>
 
 <div id="modal_backdrop" class="hide_modal"></div>
 <div id="modal_container" class="hide_modal">
