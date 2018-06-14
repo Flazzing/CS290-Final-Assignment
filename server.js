@@ -8,6 +8,10 @@ var port = process.env.PORT || 3000;
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+app.get('/', function (req, res, next) {
+  res.status(200).render('home');
+});
+
 app.use(express.static('public'));
 
 app.listen(port, function () {
