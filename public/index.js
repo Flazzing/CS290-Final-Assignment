@@ -1,6 +1,7 @@
 var record = document.querySelector('.record');
 var stop = document.querySelector('.stop');
 var clipContainer = document.querySelector('.clips-full-container');
+var profileContainer = document.querySelector('.creator-container')
 var authorText = document.getElementById('author_text');
 var commentText = document.getElementById('comment_text')
 
@@ -30,9 +31,9 @@ function clearTextFields(){
   commentText.value = '';
 };
 
-///////////////////////////////////
-//  Conditional check on upload  //
-///////////////////////////////////
+///////////////////////////////////////////
+//  Conditional check on uploading clip  //
+///////////////////////////////////////////
 function handleModalUploadClick() {
   var clipAuthor = authorText.value;
   var clipComment = commentText.value;
@@ -53,6 +54,20 @@ function insertNewClip(clipAuthor, clipComments) {
   var clipHTML = clipTemplate({
     author: clipAuthor,
     comments: clipComments
+  });
+  clipContainer.insertAdjacentHTML('beforeend', clipHTML);
+};
+
+/////////////////////////////////////////////////
+//  Inserts the new user profile into the DOM  //
+//    input: string, string                    //
+//    CURRRENTLY UNUSED                        //
+/////////////////////////////////////////////////
+function insertNewProfile(profileAuthor, profileCount) {
+  var clipTemplate = Handlebars.templates.profile;
+  var clipHTML = clipTemplate({
+    username: profileAuthor,
+    count: profileCount
   });
   clipContainer.insertAdjacentHTML('beforeend', clipHTML);
 };
