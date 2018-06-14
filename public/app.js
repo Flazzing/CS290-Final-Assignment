@@ -65,7 +65,7 @@ if(navigator.getUserMedia){
   console.log("recorder stopped");
   record.style.background = "";
   record.style.color = "";
-}
+  }
 },
 
 
