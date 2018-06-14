@@ -1,16 +1,5 @@
 # CS 290 Final Project
 
-This criterion is linked to a Learning Outcome Well-designed client interface
-20.0 pts
-This criterion is linked to a Learning Outcome Uses Client-side JS for interactions in UI
-20.0 pts
-This criterion is linked to a Learning Outcome Served via a Node.js (or other) serving stack
-20.0 pts
-This criterion is linked to a Learning Outcome Has dynamically-generated content based on data stored on the back end
-20.0 pts
-This criterion is linked to a Learning Outcome Client interface communicates with server to create, read, update, and/or delete content in the back end data store
-20.0 pts
-
 
 
 Links:
