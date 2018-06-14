@@ -1,5 +1,8 @@
-var allUsers = [];
-var allClips = [];
+var record = document.querySelector('.record');
+var stop = document.querySelector('.stop');
+var clipContainer = document.querySelector('.clips-full-container');
+var inputText = document.getElementById('input_text');
+var contributorText = document.getElementById('contributor_text')
 
 function insertNewClip(clipAuthor, clipComments) {
 
@@ -8,10 +11,13 @@ function insertNewClip(clipAuthor, clipComments) {
     author: clipAuthor,
     comments: clipComments
   });
-
-  var clipContainer = document.querySelector('.clips-full-container');
   clipContainer.insertAdjacentHTML('beforeend', clipHTML);
-}
+};
+
+function clearTextFields(){
+  inputText.value = '';
+  contributorText.value = '';
+};
 
 function handleModalUploadClick() {
 
@@ -26,7 +32,14 @@ function handleModalUploadClick() {
   } else{
     alert('You must specify both a username and a comment!');
   }
-}
+};
+
+
+function recordClip(){
+  record.addEventListener('click', function(){
+    getUserMedia();
+  });
+};
 
 /* Display modal when Upload clicked */
 var upload = document.getElementById('upload-button');
@@ -46,9 +59,10 @@ cancel_button.addEventListener('click', function() {
 
 var submit_button = document.getElementsByClassName('modal_submit')[0];
 submit_button.addEventListener('click', function() {
-	insertNewClip(document.getElementById('input_text').value, document.getElementById('contributor_text').value);
+	insertNewClip( inputText.value, contributorText.value);
 	hide_modal();
-})
+  clearTextFields();
+});
 
 
 function display_modal(){
@@ -56,13 +70,12 @@ function display_modal(){
 	var modal_backdrop = document.getElementById('modal_backdrop');
 	modal.classList.remove('hide_modal');
 	modal_backdrop.classList.remove('hide_modal');
-	
-}
+  clearTextFields();
+};
 
 function hide_modal(){
 	var modal = document.getElementById('modal_container');
 	var modal_backdrop = document.getElementById('modal_backdrop');
 	modal.classList.add('hide_modal');
 	modal_backdrop.classList.add('hide_modal');
-}
-
+};
