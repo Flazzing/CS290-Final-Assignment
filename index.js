@@ -1,8 +1,3 @@
-navigator.getUserMedia = ( navigator.getUserMedia ||
-                       navigator.webkitGetUserMedia ||
-                       navigator.mozGetUserMedia ||
-                       navigator.msGetUserMedia);
-
 var record = document.querySelector('.record');
 var stop = document.querySelector('.stop');
 var clipContainer = document.querySelector('.clips-full-container');
@@ -17,49 +12,6 @@ function insertNewClip(clipAuthor, clipComments) {
     comments: clipComments
   });
   clipContainer.insertAdjacentHTML('beforeend', clipHTML);
-};
-
-function getUserMedia(){
-  if(navigator.getUserMedia){
-    console.log('getUserMedia supported.');
-    navigator.mediaDevices.getUserMedia(
-      {
-      audio:true
-    })
-
-    .then(function(stream){
-      var mediaRecorder = new MediaRecorder(stream);
-      record.onclick = function(){
-        mediaRecorder.start();
-        console.log(mediaRecorder.state);
-        console.log('recorder started');
-        record.style.background = 'red';
-        record.style.color = 'black';
-      }
-
-      var clipStream = [];
-
-      mediaRecorder.ondataavailable = function(e){
-        clipStream.push(e.data);
-      }
-
-      stop.onclick = function(){
-        mediaRecorder.stop();
-        console.log(mediaRecorder.state);
-        console.log('recorder stopped');
-        record.style.background = '';
-        record.style.color = '';
-      }
-
-    })
-
-    .catch(function(err){
-      console.log('The following getUserMedia error occurred: ' + err);
-      }
-    );
-  } else{
-    console.log('getUserMedia not supported on your browser!');
-  }
 };
 
 function clearTextFields(){
@@ -81,6 +33,7 @@ function handleModalUploadClick() {
     alert('You must specify both a username and a comment!');
   }
 };
+
 
 function recordClip(){
   record.addEventListener('click', function(){

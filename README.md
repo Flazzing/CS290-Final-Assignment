@@ -43,7 +43,12 @@ Modal lacking:
 
 *  `javascript for adding clips that that player and website`
 *  `clearing of information when closed` (FIXED)
-*  `adding charachter limit to title and author entires`
+*  `adding charachter limit to title and author entires`(not a priority yet)
 
 index.js:
 added getUserMedia() function and an event listener for recordClip(), but site doesn't ask for access to microphone for some reason and clicking record doesn't do anything.  I added clearing of text values when adding text in the modal.  Also, tried to fix modal background but not sure why it isn't being displayed.  It may have something to do with the ordering of the CSS because I vaguely remember Hess mentioning modal backdrop wouldn't work if it is ordered incorrectly.  
+
+app.js:
+created app.js to write js for recording audio from modal.  The clip should then load into the player, but I'm not sure what all of that jquery code is doing.  I tried moving the jplayer files into a separate folder and adding scripts for them in home.handlebars, but they all disappeared from pages so I moved them back.  Maybe they need to be labeled as a dependency in package.json. I'm not sure what to do with this jquery code.
+
+The recorder is recognized now and should ask for permission to use a mic.  Record button records, but we just need somewhere to load the clip and play it.  
