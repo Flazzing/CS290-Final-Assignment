@@ -26,6 +26,14 @@ app.get('/', function (req, res, next) {
 /////////////////////////////////////////////
 app.use(express.static('public'));
 
+
+////////////////////////////////////////////////////
+//  Render 404 if non-existant file is requested  //
+////////////////////////////////////////////////////
+app.get('*', function (req, res, next) {
+  res.status(404).render('404Page');
+});
+
 app.listen(port, function () {
   console.log("== Server is listening on port", port);
 });
