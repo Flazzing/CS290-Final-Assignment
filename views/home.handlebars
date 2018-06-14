@@ -88,7 +88,7 @@
 
 <div id="modal_backdrop" class="hide_modal"></div>
 <div id="modal_container" class="hide_modal">
-  
+
    <div class="modal_content">
 
     <div class="modal_head">
@@ -135,17 +135,29 @@
           </div>
           <button class="record">Record</button>
           <button class="stop">Stop</button>
-      </button>
+          <section class="main-controls">
+            <canvas class="visualizer"></canvas>
+
+          </section>
+
+          <section class="sound-clips">
+
+            <!-- <article class="clip">
+              <audio controls></audio>
+              <a href="">Download clip</a>
+            </article> -->
+
+          </section>
     </div>
 
         <div class="modal_body">
           <div class="input_box">
-            <label for="author_text">Author</label>
-            <input type="text" id="author_text">
+            <label for="input_text">Enter Title</label>
+            <textarea id="input_text"></textarea>
           </div>
           <div class="input_box">
-            <label for="comment_text">Comments</label>
-            <textarea id="comment_text"></textarea>
+            <label for="contributor_text">Username</label>
+            <input type="text" id="contributor_text">
           </div>
         </div>
 
