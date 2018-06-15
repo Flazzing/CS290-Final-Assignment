@@ -75,13 +75,10 @@ function insertNewProfile(profileAuthor, profileCount) {
 
 
 ///////////
-//  ???  //
+//  Function for removing clips in modal after submission  //
 ///////////
-function clearClips(submit_button){
-  submit_button.onclick = function(e) {
-    var eventTarget = e.target;
-    eventTarget.parentNode.parentNode.removeChild(eventTarget.parentNode);
-}
+function clearClips(){
+
 }
 
 //////////////
