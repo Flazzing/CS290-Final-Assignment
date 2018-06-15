@@ -38,3 +38,53 @@
 </article>
 
 </main>
+
+
+<div id="modal_backdrop" class="hide_modal"></div>
+<div id="modal_container" class="hide_modal">
+
+   <div class="modal_content">
+
+    <div class="modal_head">
+      <h3>Add New Recording</h3>
+      <button type="button" class="modal_close">&times;</button>
+     </div>
+
+    <div class = "recorder_content">
+      <h4>Recording Information</h4>
+
+          <button class="record">Record</button>
+          <button class="stop">Stop</button>
+          <section class="main-controls">
+            <canvas class="visualizer"></canvas>
+
+          </section>
+
+          <section class="modal-sound-clips">
+
+            <!-- <article class="clip">
+              <audio controls></audio>
+              <a href="">Download clip</a>
+            </article> -->
+
+          </section>
+    </div>
+
+        <div class="modal_body">
+          <div class="input_box">
+            <label for="author_text">Author</label>
+            <input type="text" id="author_text">
+          </div>
+          <div class="input_box">
+            <label for="comment_text">Comments</label>
+            <textarea id="comment_text"></textarea>
+          </div>
+        </div>
+
+        <div class="modal_foot">
+          <button type="button" class="modal_submit">Submit</button>
+          <button type="button" class="modal_cancel">Cancel</button>
+        </div>
+
+      </div>
+    </div>
