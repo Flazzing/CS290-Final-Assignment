@@ -1,6 +1,40 @@
 <div class = "clips-title"><p>Clips from {{author}}</p></div>
 <main class = "clips-full-container">
-{{#each audio_clips}}
-	{{> audioclip}}
-{{/each}}
+<article class="clips-container">
+    
+	{{#each audio_clips}}
+	<div class="clips-icon">
+        <i class="profile">
+            <i><img src = "Logo.png" height="55" width="65"></i>
+            <i>
+
+              {{author}}
+
+            </i>
+        </i>
+    </div>
+
+    <section class = "sound-clips">
+        <audio controls = "controls">
+        <source src = {{clipAudio}} type = "audio/ogg">
+      </audio>
+    </section>
+
+        <div class="clips-content">
+            <p class="clips-text">
+                <p1 class="clips-time">
+
+                    3:58
+
+                </p1>
+            </p>
+        </div>
+    <div class = "author-comments">
+
+      {{clipComment}}
+
+    </div>
+	{{/each}}
+</article>
+
 </main>
