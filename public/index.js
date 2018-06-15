@@ -31,14 +31,16 @@ function clearTextFields(){
   commentText.value = '';
 };
 
-///////////////////////////////////////////
-//  Conditional check on uploading clip  //
-///////////////////////////////////////////
+//////////////////////////////////////////////////
+//  Conditional check on uploading clip         //
+//    !!finds audio clip but type is incorrect  //
+//////////////////////////////////////////////////
 function handleModalUploadClick() {
   var clipAuthor = authorText.value;
   var clipComment = commentText.value;
+  var clipAudio = document.querySelector('.sound-clips').lastChild;
   if(clipAuthor && clipComment) {
-    insertNewClip(clipAuthor, clipComment);
+    insertNewClip(clipAuthor, clipComment, clipAudio);
     hide_modal();
   } else{
     alert('You must specify both a username and a comment!');
@@ -49,12 +51,13 @@ function handleModalUploadClick() {
 //  Inserts the new clip into the DOM  //
 //    input: string, string            //
 /////////////////////////////////////////
-function insertNewClip(clipAuthor, clipComments) {
+function insertNewClip(clipAuthor, clipComments, clipAudio) {
 
   var clipTemplate = Handlebars.templates.audioclip;
   var clipHTML = clipTemplate({
     author: clipAuthor,
-    comments: clipComments
+    comments: clipComments,
+    audio: clipAudio
   });
   clipContainer.insertAdjacentHTML('beforeend', clipHTML);
 };
@@ -74,9 +77,9 @@ function insertNewProfile(profileAuthor, profileCount) {
 };
 
 
-///////////
+/////////////////////////////////////////////////////////////
 //  Function for removing clips in modal after submission  //
-///////////
+/////////////////////////////////////////////////////////////
 function clearClips(){
 
 }
