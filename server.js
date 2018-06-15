@@ -41,8 +41,32 @@ app.get('/', function (req, res, next) {
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
+app.get('/users', function (req, res, next) {
+  var userCollection = mongoDB.collection('users');
+  userCollection.find().toArray(function (err, user) {
+    if (err) {
+      res.status(500).send("Error fetching people from DB.");
+    } else {
+      res.status(200).render('userPage', {
+        user: user
+      });
+    }
+  });
+});
 
-
+app.get('/users/:user', function (req, res, next) {
+  var user = req.params.user.toLowerCase();
+  var userCollection = mongoDB.collection('users');
+  userCollection.find({ author: user  }).toArray(function (err, acs) {
+    if (err) {
+      res.status(500).send("Error fetching user from DB.");
+    } else if (acs.length > 0) {
+      res.status(200).render('userClipPage', acs[0]);
+    } else {
+      next();
+    }
+  });
+});
 
 app.post('/', function (req, res, next) {
 	if(req.body && req.body.clipAuthor && req.body.clipComment && req.body.clipAudio){
