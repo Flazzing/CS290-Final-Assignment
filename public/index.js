@@ -30,7 +30,7 @@ function clearTextFields(){
   authorText.value = '';
   commentText.value = '';
 };
-/*
+
 function get_username(){
 	var path = window.location.pathname;
 	var pathParts = path.split('/');
@@ -40,7 +40,18 @@ function get_username(){
 	else {
     return null;
 	}
-}*/
+}
+
+function is_New(){
+	var path = window.location.pathname;
+	var pathParts = path.split('/');
+	if (pathParts[1] === "users" && pathParts[3] === "addclip") {
+		return true;
+	}
+	else{
+		return false;
+	}
+}
 
 //////////////////////////////////////////////////
 //  Conditional check on uploading clip         //
@@ -52,10 +63,18 @@ function handleModalUploadClick() {
   var clipAudio = document.querySelector('.modal-sound-clips').lastChild.firstChild.currentSrc;
 
   var request = new XMLHttpRequest();
-  //var username = get_username();
-  //var url = "/people" + username + "/addClip";
-  request.open("POST", '/');
-	
+  var username = get_username();
+  var check_link = is_New();
+  if(check_link == true){
+	var url = "/people" + username + "/addClip";
+	request.open("POST", url);
+	clipAuthor = username;
+	console.log("True");
+  }
+  else{
+	request.open("POST", "/");  
+  }
+  
 	if(clipAuthor && clipComment) {
 		insertNewClip(clipAuthor, clipAudio, clipComment);
 	
