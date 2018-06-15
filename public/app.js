@@ -5,8 +5,9 @@ navigator.getUserMedia = ( navigator.getUserMedia ||
 
 var record = document.querySelector('.record');
 var stop = document.querySelector('.stop');
-var soundClips = document.querySelector('.sound-clips');
+var soundClips = document.querySelector('.modal-sound-clips');
 var canvas = document.querySelector('.visualizer');
+var chunks = [];
 
 var audioCtx = new (window.AudioContext || webkitAudioContext)();
 var canvasCtx = canvas.getContext("2d");
@@ -33,7 +34,7 @@ if(navigator.getUserMedia){
 
     mediaRecorder.ondataavailable = function(e){
       console.log('data available');
-
+      chunks.push(e.data);
       var clipName = prompt('enter a name for clip');
       var clipContainer = document.createElement('article');
       var clipLabel = document.createElement('p');
@@ -50,7 +51,9 @@ if(navigator.getUserMedia){
       clipContainer.appendChild(deleteButton);
       soundClips.appendChild(clipContainer);
 
-      var audioURL = window.URL.createObjectURL(e.data);
+      var blob = new Blob(chunks, {'type' : 'audio/ogg; codecs=opus'});
+      chunks = [];
+      var audioURL = window.URL.createObjectURL(blob);
       audio.src = audioURL;
 
       deleteButton.onclick = function(e) {

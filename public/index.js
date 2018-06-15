@@ -38,7 +38,7 @@ function clearTextFields(){
 function handleModalUploadClick() {
   var clipAuthor = authorText.value;
   var clipComment = commentText.value;
-  var clipAudio = document.querySelector('.sound-clips').lastChild;
+  var clipAudio = document.querySelector('.modal-sound-clips').lastChild.firstChild.currentSrc;
   if(clipAuthor && clipComment) {
     insertNewClip(clipAuthor, clipComment, clipAudio);
     hide_modal();
