@@ -5,6 +5,8 @@ var clipContainer = document.querySelector('.clips-full-container');
 var authorText = document.getElementById('author_text');
 var commentText = document.getElementById('comment_text');
 
+var allClips = [];
+
 /////////////////////////////////
 //  Display or hide the modal  //
 /////////////////////////////////
@@ -40,15 +42,54 @@ function handleModalUploadClick() {
   var clipComment = commentText.value;
   var clipAudio = document.querySelector('.modal-sound-clips').lastChild.firstChild.currentSrc;
 
+  allClips.push({
+    author: clipAuthor,
+    audio: clipAudio,
+    comment: clipComment
+  });
+
   if(clipAuthor && clipComment) {
     insertNewClip(clipAuthor, clipAudio, clipComment);
-     clearTextFields();
-     clearClips();
-     hide_modal();
+    clearTextFields();
+    clearClips();
+    hide_modal();
   } else{
     alert('You must specify both a username and a comment!');
   }
 };
+
+
+////////////////////
+//  Search update //
+////////////////////
+function doSearchUpdate() {
+  var searchQuery = document.getElementById('navbar-search-input').value;
+
+  if (clipContainer) {
+    while (clipContainer.lastChild) {
+      clipContainer.removeChild(clipContainer.lastChild);
+    }
+  }
+
+  allClips.forEach(function (clip) {
+    if (clipMatchesSearchQuery(clip, searchQuery)) {
+      insertNewClip(clip.author, clip.audio, clip.comments);
+    }
+  });
+}
+
+//////////////////
+//  search bool //
+//////////////////
+function clipMatchesSearchQuery(clip, searchQuery) {
+
+  if (!searchQuery) {
+    return true;
+  }
+
+  searchQuery = searchQuery.trim().toLowerCase();
+  return (clip.author + " " + clip.comments).toLowerCase().indexOf(searchQuery) >= 0;
+}
 
 /////////////////////////////////////////
 //  Inserts the new clip into the DOM  //
@@ -61,7 +102,6 @@ function insertNewClip(clipAuthor, clipAudio, clipComments) {
     author: clipAuthor,
     clip: clipAudio,
     comments: clipComments
-
   });
   console.log(clipAudio);
   clipContainer.insertAdjacentHTML('beforeend', clipHTML);
@@ -111,3 +151,8 @@ var submit_button = document.getElementsByClassName('modal_submit')[0];
 submit_button.addEventListener('click', function() {
   handleModalUploadClick();
 });
+
+var searchInput = document.getElementById('navbar-search-input');
+if (searchInput) {
+  searchInput.addEventListener('input', doSearchUpdate);
+}

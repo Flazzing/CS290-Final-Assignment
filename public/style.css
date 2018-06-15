@@ -181,6 +181,13 @@ a {
 .clips-title{
     width: auto;
     margin-top: 60px;
+    margin-left: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  .clips-title{
+    margin-left: 0%;
+}
 }
 
 .clips-full-container{
