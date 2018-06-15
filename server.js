@@ -17,6 +17,8 @@ var mongoURL = "mongodb://" +
   mongoUsername + ":" + mongoPassword + "@" + mongoHost + ":" + mongoPort +
   "/" + mongoDBName;
 
+var mongoDB =  null;
+
 ///////////////////////////////////////////////////////////////////////
 //  Initiate express and handlebars and set port to desired or 3000  //
 ///////////////////////////////////////////////////////////////////////
@@ -38,6 +40,42 @@ app.get('/', function (req, res, next) {
 /////////////////////////////////////////////
 app.use(express.static('public'));
 app.use(bodyParser.json());
+
+
+
+
+app.post('/', function (req, res, next) {
+	if(req.body && req.body.clipAuthor && req.body.clipComment && req.body.clipAudio){
+		var audio_clip = {
+			clipComment: req.body.clipComment,
+			clipAudio: req.body.clipAudio
+		};
+		var userCollection = mongoDB.collection('users');
+		userCollection.updateOne(
+		{author: req.body.clipAuthor},
+		{ $push: { audio_clips: audio_clip}},
+		function(err, result){
+			if(err){
+				res.status(500).send("Error inserting audio clip");
+			}
+			else{
+				console.log("== mongo insert result:", result);
+				if (result.matchedCount > 0) {
+					res.status(200).end();
+				} 
+				else {
+					next();
+				}
+			}
+		}
+		);
+	}
+	else{
+		res.status(400).send("Request needs a JSON body with caption and photoURL.");
+	}
+	
+	});
+
 
 ////////////////////////////////////////////////////
 //  Render 404 if non-existant file is requested  //
