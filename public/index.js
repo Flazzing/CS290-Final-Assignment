@@ -39,8 +39,9 @@ function handleModalUploadClick() {
   var clipAuthor = authorText.value;
   var clipComment = commentText.value;
   var clipAudio = document.querySelector('.modal-sound-clips').lastChild.firstChild.currentSrc;
+
   if(clipAuthor && clipComment) {
-    insertNewClip(clipAuthor, clipComment, clipAudio);
+    insertNewClip(clipAuthor, clipAudio, clipComment);
     hide_modal();
   } else{
     alert('You must specify both a username and a comment!');
@@ -51,14 +52,16 @@ function handleModalUploadClick() {
 //  Inserts the new clip into the DOM  //
 //    input: string, string            //
 /////////////////////////////////////////
-function insertNewClip(clipAuthor, clipComments, clipAudio) {
+function insertNewClip(clipAuthor, clipAudio, clipComments) {
 
   var clipTemplate = Handlebars.templates.audioclip;
   var clipHTML = clipTemplate({
     author: clipAuthor,
-    comments: clipComments,
-    audio: clipAudio
+    clip: clipAudio,
+    comments: clipComments
+
   });
+  console.log(clipAudio);
   clipContainer.insertAdjacentHTML('beforeend', clipHTML);
 };
 
