@@ -4,6 +4,18 @@
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
+var bodyParser = require('body-parser');
+var MongoClient = require('mongodb').MongoClient;
+
+var mongoHost = process.env.MONGO_HOST;
+var mongoPort = process.env.MONGO_PORT || '27017';
+var mongoUsername = process.env.MONGO_USERNAME;
+var mongoPassword = process.env.MONGO_PASSWORD;
+var mongoDBName = process.env.MONGO_DB_NAME;
+
+var mongoURL = "mongodb://" +
+  mongoUsername + ":" + mongoPassword + "@" + mongoHost + ":" + mongoPort +
+  "/" + mongoDBName;
 
 ///////////////////////////////////////////////////////////////////////
 //  Initiate express and handlebars and set port to desired or 3000  //
@@ -25,7 +37,7 @@ app.get('/', function (req, res, next) {
 //  Render page of file typed into browser //
 /////////////////////////////////////////////
 app.use(express.static('public'));
-
+app.use(bodyParser.json());
 
 ////////////////////////////////////////////////////
 //  Render 404 if non-existant file is requested  //
