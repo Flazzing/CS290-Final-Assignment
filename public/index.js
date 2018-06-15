@@ -42,7 +42,9 @@ function handleModalUploadClick() {
 
   if(clipAuthor && clipComment) {
     insertNewClip(clipAuthor, clipAudio, clipComment);
-    hide_modal();
+     clearTextFields();
+     clearClips();
+     hide_modal();
   } else{
     alert('You must specify both a username and a comment!');
   }
@@ -108,6 +110,4 @@ cancel_button.addEventListener('click', function() {
 var submit_button = document.getElementsByClassName('modal_submit')[0];
 submit_button.addEventListener('click', function() {
   handleModalUploadClick();
-  clearTextFields();
-  hide_modal();
 });
