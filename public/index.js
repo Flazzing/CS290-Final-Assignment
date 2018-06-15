@@ -5,6 +5,8 @@ var clipContainer = document.querySelector('.clips-full-container');
 var authorText = document.getElementById('author_text');
 var commentText = document.getElementById('comment_text');
 
+var allClips = [];
+
 /////////////////////////////////
 //  Display or hide the modal  //
 /////////////////////////////////
@@ -51,6 +53,38 @@ function is_New(){
 	else{
 		return false;
 	}
+}
+
+////////////////////
+//  Search update //
+////////////////////
+function doSearchUpdate() {
+  var searchQuery = document.getElementById('navbar-search-input').value;
+
+  if (clipContainer) {
+    while (clipContainer.lastChild) {
+      clipContainer.removeChild(clipContainer.lastChild);
+    }
+  }
+
+  allClips.forEach(function (clip) {
+    if (clipMatchesSearchQuery(clip, searchQuery)) {
+      insertNewClip(clip.author, clip.audio, clip.comments);
+    }
+  });
+}
+
+//////////////////
+//  search bool //
+//////////////////
+function clipMatchesSearchQuery(clip, searchQuery) {
+
+  if (!searchQuery) {
+    return true;
+  }
+
+  searchQuery = searchQuery.trim().toLowerCase();
+  return (clip.author + " " + clip.comments).toLowerCase().indexOf(searchQuery) >= 0;
 }
 
 //////////////////////////////////////////////////
@@ -158,3 +192,8 @@ var submit_button = document.getElementsByClassName('modal_submit')[0];
 submit_button.addEventListener('click', function() {
   handleModalUploadClick();
 });
+
+var searchInput = document.getElementById('navbar-search-input');
+if (searchInput) {
+  searchInput.addEventListener('input', doSearchUpdate);
+}
