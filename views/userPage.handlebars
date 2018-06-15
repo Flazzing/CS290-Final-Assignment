@@ -1,0 +1,24 @@
+<main class = "creator-full-container">
+<div class = "creator-title"><p>Current Users</p></div>
+<main class="creator-container" class = "creator">
+  
+  {{#each user}}
+	<article class = "creator">
+    <div class="creator-icon">
+      <i class="profile-picture">
+          <img src = "Logo.png" height="55" width="65">
+        </i>
+    </div>
+    <div class="creator-content">
+      <p class="creator-text">
+		{{author}}
+      </p>
+      <p class="creator-attribution">
+        Followers: 10
+      </p>
+    </div>
+	</article>
+	{{/each}}
+	
+</main>
+</main>
