@@ -1,3 +1,31 @@
+///////////////////////
+// Pre-defined modal //
+///////////////////////
+#modal_backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 800;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+#modal_container {
+  font-family: Roboto, Helvetica, sans-serif;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 850;
+  overflow: scroll;
+}
+
+.hide_modal{
+	display: none;
+}
+
 body {
   font-family: Roboto, Helvetica, sans-serif;
   margin: 0px;
@@ -329,31 +357,6 @@ flex-basis: 33.33%;
 //////////////
 //  Modal  //
 /////////////
-#modal_backdrop {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 800;
-  background-color: rgba(0, 0, 0, 0.85);
-}
-
-#modal_container {
-  font-family: Roboto, Helvetica, sans-serif;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 850;
-  overflow: scroll;
-}
-
-.hide_modal{
-	display: none;
-}
-
 .record{
 	border-radius: 30px;
 	min-width: 30px;
