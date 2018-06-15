@@ -32,7 +32,9 @@ app.set('view engine', 'handlebars');
 //  Render home page as default page  //
 ////////////////////////////////////////
 app.get('/', function (req, res, next) {
-  res.status(200).render('home');
+  res.status(200).render('home', {
+    upload: false
+  });
 });
 
 /////////////////////////////////////////////
@@ -48,7 +50,8 @@ app.get('/users', function (req, res, next) {
       res.status(500).send("Error fetching people from DB.");
     } else {
       res.status(200).render('userPage', {
-        user: user
+        user: user,
+        upload: true
       });
     }
   });
@@ -105,7 +108,9 @@ app.post('/', function (req, res, next) {
 //  Render 404 if non-existant file is requested  //
 ////////////////////////////////////////////////////
 app.get('*', function (req, res, next) {
-  res.status(404).render('404');
+  res.status(404).render('404', {
+    upload: true
+  });
 });
 
 MongoClient.connect(mongoURL, function (err, client) {

@@ -7,6 +7,9 @@
 
     <ul class="navlist">
       <li class="navitem navlink active" id = "logo"><a href="#"> <i class="far fa-hand-lizard"></i>EchoFy </a></li>
+
+{{#unless upload}}
+
         <div class = "table-right">
       <li class="navitem navlink" id = "upload-button"><a href="#">Upload</a></li>
       <li class="navitem navbar-search">
@@ -14,6 +17,9 @@
         <button type="button" id="navbar-search-button"><i class="fas fa-search"></i></button>
       </li>
         </div>
+
+{{/unless}}
+
     </ul>
   </nav>
 </header>
