@@ -32,7 +32,9 @@ app.set('view engine', 'handlebars');
 //  Render home page as default page  //
 ////////////////////////////////////////
 app.get('/', function (req, res, next) {
-  res.status(200).render('home');
+  res.status(200).render('home', {
+  	showButton: true
+  });
 });
 
 /////////////////////////////////////////////
