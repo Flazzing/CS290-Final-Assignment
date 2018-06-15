@@ -109,6 +109,12 @@ function handleModalUploadClick() {
 	request.open("POST", "/");  
   }
   
+  allClips.push({
+    author: clipAuthor,
+    audio: clipAudio,
+    comment: clipComment
+  });
+
 	if(clipAuthor && clipComment) {
 		insertNewClip(clipAuthor, clipAudio, clipComment);
 	
